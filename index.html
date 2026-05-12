@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Proyecto ASIR - Iván Palma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #1e1e2f; color: #e0e0e0; font-family: 'Roboto', sans-serif; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; }
+        
+        /* Contenedor de la Diapositiva (Formato 16:9) */
+        .slide {
+            width: 1280px; height: 720px;
+            background: linear-gradient(135deg, #2b2b40 0%, #1a1a2e 100%);
+            border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; padding: 50px 70px;
+            position: relative; overflow: hidden;
+            border: 1px solid #3f3f5a;
+        }
+
+        /* Encabezados y Textos */
+        h1 { font-size: 56px; color: #4facfe; margin-bottom: 20px; font-weight: 700; }
+        h2 { font-size: 42px; color: #4facfe; border-bottom: 3px solid #00f2fe; padding-bottom: 15px; margin-bottom: 40px; width: fit-content; }
+        h3 { font-size: 28px; color: #ffffff; margin-bottom: 15px; }
+        p, li { font-size: 22px; line-height: 1.6; color: #c8c8cf; }
+        ul { margin-left: 30px; margin-bottom: 20px; }
+        
+        .accent { color: #00f2fe; font-weight: 700; }
+
+        /* Layouts de las diapositivas */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; height: 100%; align-items: start; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+        
+        /* Cajas de Capturas de Pantalla */
+        .image-container {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100%; text-align: center;
+        }
+        .image-container img {
+            max-width: 100%; max-height: 100%; object-fit: contain; 
+            border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            border: 2px solid #3f3f5a;
+        }
+
+        /* Cajas de información / Tarjetas */
+        .card {
+            background: rgba(255,255,255,0.05); border-left: 5px solid #00f2fe;
+            padding: 25px; border-radius: 0 8px 8px 0; margin-bottom: 25px;
+        }
+
+        /* Timeline (Planificación) */
+        .timeline { display: flex; justify-content: space-between; margin-top: 60px; position: relative; }
+        .timeline::before { content: ''; position: absolute; top: 20px; left: 0; width: 100%; height: 4px; background: #3f3f5a; z-index: 1; }
+        .time-point { position: relative; z-index: 2; text-align: center; width: 200px; }
+        .dot { width: 40px; height: 40px; background: #4facfe; border-radius: 50%; margin: 0 auto 20px auto; border: 5px solid #1a1a2e; }
+        
+        /* Footer de la diapositiva */
+        .slide-footer { position: absolute; bottom: 30px; right: 70px; font-size: 16px; color: #6e6e8e; }
+    </style>
+</head>
+<body>
+
+    <!-- DIAPOSITIVA 1: PORTADA -->
+    <div class="slide">
+        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+            <div style="background: rgba(79, 172, 254, 0.1); padding: 10px 20px; border-radius: 5px; color: #00f2fe; font-weight: bold; margin-bottom: 30px; letter-spacing: 2px;">DEFENSA PROYECTO INTERMODULAR</div>
+            <h1>Diseño Técnico de Infraestructura Empresarial Segura</h1>
+            <p style="font-size: 32px; color: #ffffff; margin-bottom: 40px;">Segmentación, IDS/IPS y Automatización de Red</p>
+            <div class="card" style="border-left-color: #4facfe; width: 600px;">
+                <p><i class="fa-solid fa-user-graduate" style="margin-right: 15px;"></i><strong>Autor:</strong> Iván Palma Sierra</p>
+                <p><i class="fa-solid fa-laptop-code" style="margin-right: 15px;"></i><strong>Titulación:</strong> ASIR (Curso 2025-2026)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIAPOSITIVA 2: CONTEXTO Y OBJETIVOS -->
+    <div class="slide">
+        <h2>1. Análisis del Escenario y Objetivos</h2>
+        <div class="grid-2">
+            <div>
+                <h3>El Problema (Punto de partida)</h3>
+                <ul style="margin-bottom: 40px;">
+                    <li>Red "plana" sin segmentar (todos los equipos en el mismo rango).</li>
+                    <li>Exposición directa de servicios web al exterior.</li>
+                    <li>Ceguera tecnológica: Sin monitorización ni control de tráfico.</li>
+                </ul>
+                <h3>Los Objetivos Cumplidos</h3>
+                <ul>
+                    <li><span class="accent">Segmentación Lógica:</span> Separación de WAN, LAN y DMZ.</li>
+                    <li><span class="accent">Seguridad Activa:</span> Implementación de Firewall e IDS/IPS.</li>
+                    <li><span class="accent">Disponibilidad:</span> Hardening de servidores y DHCP perimetral.</li>
+                </ul>
+            </div>
+            <div class="image-container" style="padding: 20px;">
+                <img src="esquema.png" alt="Esquema de Red" style="opacity: 0.5; filter: grayscale(100%);">
+            </div>
+        </div>
+        <div class="slide-footer">Defensa TFG - Iván Palma</div>
+    </div>
+
+    <!-- DIAPOSITIVA 3: DISEÑO TÉCNICO -->
+    <div class="slide">
+        <h2>2. Diseño Técnico y Arquitectura</h2>
+        <div class="grid-2" style="grid-template-columns: 1.2fr 0.8fr;">
+            <div class="image-container" style="height: 450px;">
+                <!-- IMAGEN: ESQUEMA -->
+                <img src="esquema.png" alt="Esquema Topológico" style="background-color: white;">
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="card">
+                    <h3>Justificación de la Arquitectura</h3>
+                    <p>Se descartó la Nube Pública (AWS) en favor de una <span class="accent">Nube Privada On-Premise</span> para garantizar:</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Control total del enrutamiento de Capa 2 y 3.</li>
+                        <li>Inspección profunda de paquetes (necesaria para Snort).</li>
+                        <li>Coste cero en licencias (Open Source).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Defensa TFG - Iván Palma</div>
+    </div>
+
+    <!-- DIAPOSITIVA 4: PLANIFICACIÓN Y EJECUCIÓN -->
+    <div class="slide">
+        <h2>3. Planificación y Proceso de Ejecución</h2>
+        <p style="margin-bottom: 20px;">El proyecto se estructuró con una estimación de <strong>30 horas de trabajo técnico</strong>, dividido en las siguientes fases lógicas de despliegue:</p>
+        
+        <div class="timeline">
+            <div class="time-point">
+                <div class="dot"></div>
+                <h3 style="font-size: 20px;">Fase 1: Diseño</h3>
+                <p style="font-size: 16px;">Definición de IPs y topología (LAN estática vs dinámica).</p>
+            </div>
+            <div class="time-point">
+                <div class="dot"></div>
+                <h3 style="font-size: 20px;">Fase 2: Despliegue Base</h3>
+                <p style="font-size: 16px;">Instalación de Hipervisor, pfSense y máquinas virtuales.</p>
+            </div>
+            <div class="time-point">
+                <div class="dot"></div>
+                <h3 style="font-size: 20px;">Fase 3: Reglas de Red</h3>
+                <p style="font-size: 16px;">Configuración DHCP, NAT y reglas de Firewall perimetral.</p>
+            </div>
+            <div class="time-point">
+                <div class="dot"></div>
+                <h3 style="font-size: 20px;">Fase 4: Seguridad</h3>
+                <p style="font-size: 16px;">Despliegue de Apache (DMZ) y configuración de firmas Snort.</p>
+            </div>
+        </div>
+        <div class="slide-footer">Defensa TFG - Iván Palma</div>
+    </div>
+
+    <!-- DIAPOSITIVA 5: EVIDENCIAS DE RED -->
+    <div class="slide">
+        <h2>4. Evidencias: Segmentación y Validación</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Asignación de Infraestructura</h3>
+                <p style="margin-bottom: 15px; font-size: 18px;">Servicio DHCP funcional en el segmento LAN (Windows), manteniendo IPs estáticas seguras en la DMZ (Ubuntu).</p>
+                <div class="image-container" style="height: 320px;">
+                    <!-- IMAGEN: DHCP -->
+                    <img src="dhcp leases.png" alt="Captura DHCP Leases">
+                </div>
+            </div>
+            <div>
+                <h3>Validación "Cross-Segment" (Usuario)</h3>
+                <p style="margin-bottom: 15px; font-size: 18px;">Verificación del acceso desde la máquina cliente (LAN) hacia el servidor Apache de producción (DMZ).</p>
+                <div class="image-container" style="height: 320px;">
+                    <!-- IMAGEN: WEB UBUNTU -->
+                    <img src="apache2 ubuntu.png" alt="Captura Web en Windows">
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Defensa TFG - Iván Palma</div>
+    </div>
+
+    <!-- DIAPOSITIVA 6: SEGURIDAD ACTIVA -->
+    <div class="slide">
+        <h2>5. Seguridad Activa: Motor IDS/IPS (Snort)</h2>
+        <div class="grid-2">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="card" style="margin: 0; padding: 15px;">
+                    <h3 style="font-size: 22px; color: #ff4d4d;"><i class="fa-solid fa-triangle-exclamation"></i> Fase de Detección</h3>
+                    <p style="font-size: 16px;">Snort identifica el tráfico anómalo (ej. Escaneo ICMP) y genera alertas.</p>
+                </div>
+                <div class="image-container" style="height: 270px;">
+                    <!-- IMAGEN: ALERTAS SNORT -->
+                    <img src="alertas seguridad.png" alt="Alertas Snort">
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="card" style="margin: 0; padding: 15px; border-left-color: #ff4d4d;">
+                    <h3 style="font-size: 22px; color: #ff4d4d;"><i class="fa-solid fa-ban"></i> Fase de Prevención</h3>
+                    <p style="font-size: 16px;">Bloqueo automático de la IP atacante, aislando la amenaza de la red interna.</p>
+                </div>
+                <div class="image-container" style="height: 270px;">
+                    <!-- IMAGEN: BLOQUEO SNORT -->
+                    <img src="bloqueo de ping.png" alt="Bloqueos Snort">
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Defensa TFG - Iván Palma</div>
+    </div>
+
+    <!-- DIAPOSITIVA 7: CONTROL Y CONTINUIDAD -->
+    <div class="slide">
+        <h2>6. Monitorización y Continuidad (DR)</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Telemetría en Vivo</h3>
+                <p style="margin-bottom: 15px; font-size: 18px;">Uso de indicadores visuales (Dashboard) para medir el rendimiento de interfaces.</p>
+                <div class="image-container" style="height: 350px;">
+                    <!-- IMAGEN: GRÁFICAS -->
+                    <img src="trafico pfsense.png" alt="Gráficas de pfSense">
+                </div>
+            </div>
+            <div>
+                <h3>Disaster Recovery</h3>
+                <p style="margin-bottom: 15px; font-size: 18px;">Extracción de configuración XML para asegurar un RTO (Tiempo de Recuperación) óptimo.</p>
+                <div class="image-container" style="height: 350px;">
+                    <!-- IMAGEN: BACKUP XML -->
+                    <img src="backup and restore.png" alt="Backup XML">
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Defensa TFG - Iván Palma</div>
+    </div>
+
+    <!-- DIAPOSITIVA 8: CONCLUSIÓN -->
+    <div class="slide" style="align-items: center; justify-content: center; text-align: center;">
+        <h2 style="border: none; font-size: 60px; margin-bottom: 20px;">Infraestructura Asegurada</h2>
+        <p style="font-size: 28px; color: #00f2fe; margin-bottom: 60px;">Proyecto validado y operativo al 100%.</p>
+        <div class="card" style="border: none; background: transparent; text-align: center;">
+            <p style="font-size: 32px; color: #ffffff; margin-bottom: 10px;">Gracias por su atención.</p>
+            <p style="font-size: 22px; color: #6e6e8e;">Quedo a su disposición para cualquier pregunta técnica.</p>
+        </div>
+    </div>
+
+</body>
+</html>
